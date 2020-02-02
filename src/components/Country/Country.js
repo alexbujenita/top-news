@@ -1,10 +1,11 @@
 import React, { PureComponent } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { API_KEY } from "../../apiKey";
-import { articles } from '../Article/articles';
-import { countryName } from "./utils";
+import { articles } from "../Article/articles";
+import { countryName, isCountryValid } from "./utils";
 import Article from "../Article/Article";
-import style from './Country.module.scss'
+import style from "./Country.module.scss";
+import PageNotFound from "../PageNotFound/PageNotFound";
 
 class Country extends PureComponent {
   state = {
@@ -21,16 +22,23 @@ class Country extends PureComponent {
   }
 
   render() {
-    const name = countryName(this.props.match.params);
+    const { country } = this.props.match.params;
+    if (!isCountryValid(country)) return <PageNotFound />;
     // const { articles } = this.state
+    const name = countryName(country);
+
     return (
       <div>
         <div className={style.stickyTitle}>
-        <Link to="/">&lt; Back</Link>
-        <h2>Top news from {name}</h2>
+          <Link to="/">&lt; Back</Link>
+          <h2>Top news from {name}</h2>
         </div>
-        <div className={style.articleList} >
-          {articles && articles.length ? articles.map(article => <Article article={article} />) : null}
+        <div className={style.articleList}>
+          {articles && articles.length
+            ? articles.map(article => (
+                <Article key={article.publishedAt} article={article} />
+              ))
+            : null}
         </div>
       </div>
     );

@@ -12,7 +12,7 @@ const CountryList = () => {
           countries.map(country => {
           const { code, flagUrl } = country;
           return (
-            <Link to={`/news/${code}`} className={styles.country}>
+            <Link to={`/news/${code}`} className={styles.country} key={code}>
               <img className={styles.countryFlag} src={flagUrl} alt={code+' flag'} />
               <h2>{country.name}</h2>
             </Link>
