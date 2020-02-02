@@ -22,7 +22,7 @@ class Country extends PureComponent {
 
   render() {
     const name = countryName(this.props.match.params);
-    // const {articles} = this.state
+    // const { articles } = this.state
     return (
       <div>
         <div className={style.stickyTitle}>
