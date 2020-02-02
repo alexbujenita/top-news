@@ -9,24 +9,26 @@
 }
 .countryListSection {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-.countryTitle {
+.country {
   display: flex;
-  border: 1px solid grey;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 1rem;
-  height: 4rem;
+  flex-direction: column;
+  height: 10rem;
+  align-items: center;
   text-align: center;
-  @media screen and (min-width: 480px) {
-    width: 48%;
-  }
+  padding: 1rem;
+  width: 100px;
+  text-decoration: none;
+  color: #3f84d5;
+}
 
-  &:first-of-type {
-    display: inline-block;
-    width: 100%;
-    vertical-align: middle;
-  }
+.countryFlag {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  object-fit: fill;
 }
