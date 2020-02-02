@@ -1,6 +1,8 @@
 import React, { PureComponent } from "react";
 import { API_KEY } from "../../apiKey";
+import { articles } from '../Article/articles';
 import { countryName } from "./utils";
+import Article from "../Article/Article";
 
 class Country extends PureComponent {
   state = {
@@ -8,12 +10,12 @@ class Country extends PureComponent {
   };
 
   async componentDidMount() {
-    const { country } = this.props.match.params;
-    const response = await fetch(
-      `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=5&apiKey=${API_KEY}`
-    );
-    const { articles } = await response.json();
-    this.setState({ articles });
+    // const { country } = this.props.match.params;
+    // const response = await fetch(
+    //   `https://newsapi.org/v2/top-headlines?country=${country}&pageSize=5&apiKey=${API_KEY}`
+    // );
+    // const { articles } = await response.json();
+    // this.setState({ articles });
   }
 
   render() {
@@ -22,6 +24,7 @@ class Country extends PureComponent {
     return (
       <div>
         <h2>Top news from {name}</h2>
+        {articles && articles.length && articles.map(article => <Article article={article} />)}
       </div>
     );
   }
