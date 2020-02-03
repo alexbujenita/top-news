@@ -1,0 +1,32 @@
+.articleContainer {
+  border: 1px #9e9e9e solid;
+  box-shadow: 2px 2px 5px;
+  padding: 5px;
+  margin-bottom: 1rem;
+}
+
+.articleContent {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    text-decoration: none;
+    color: #3f84d5;
+    font-weight: 700;
+  }
+
+  @media screen and (min-width: 770px) {
+    flex-direction: row;
+    p {
+      padding: 0 1rem;
+    }
+  }
+}
+
+.articleImage {
+  max-width: 100%;
+  @media screen and (min-width: 770px) {
+    max-width: 200px;
+    object-fit: cover;
+  }
+}

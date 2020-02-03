@@ -1,0 +1,23 @@
+.stickyTitle {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  padding-left: 3%;
+  a {
+    display: inline-flex;
+    align-self: center;
+    color: #3f84d5;
+    text-decoration: none;
+    width: 20%;
+  }
+  h2 {
+    display: inline-flex;
+    text-align: center;
+    width: 80%;
+  }
+}
+
+.articleList {
+  width: 95%;
+  margin: 0 auto;
+}
