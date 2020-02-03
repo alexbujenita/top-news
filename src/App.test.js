@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import { shallow } from 'enzyme';
 
 jest.mock('react-router-dom', () => ({
   Switch: () => <div/>,
@@ -8,6 +8,6 @@ jest.mock('react-router-dom', () => ({
 }))
 
 test('renders learn react link', () => {
-  const wrapper = render(<App />);
-  expect(wrapper).toBeTruthy()
+  const wrapper = shallow(<App />);
+  expect(wrapper.exists()).toBe(true);
 });
